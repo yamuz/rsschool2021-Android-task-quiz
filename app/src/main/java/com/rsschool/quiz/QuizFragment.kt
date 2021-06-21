@@ -47,49 +47,46 @@ class QuizFragment: Fragment() {
                                  container: ViewGroup?,
                         savedInstanceState: Bundle?):  View
     {
+        try {
+            val args = QuizFragmentArgs.fromBundle(requireArguments())
+            args.let {
+                questionIndex = args.questionIndex ?: 0
+                selectedAnswers = args.selectedAnswers ?: intArrayOf(-1, -1, -1, -1, -1)
+            }
+        } catch(exc:Exception){
+            questionIndex =  0
+            selectedAnswers = intArrayOf(-1, -1, -1, -1, -1)
+        }
 
+        when (questionIndex){
+            0->activity?.setTheme(R.style.Theme_Quiz)
+            1->activity?.setTheme(R.style.Theme_Quiz_First)
+            2->activity?.setTheme(R.style.Theme_Quiz_Second)
+            3->activity?.setTheme(R.style.Theme_Quiz_Third)
+            4->activity?.setTheme(R.style.Theme_Quiz_Fourth)
+        }
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_quiz, container, false)
 
+        setAnswers()
 
-            try {
-                val args = QuizFragmentArgs.fromBundle(requireArguments())
-                args.let {
-                    questionIndex = args.questionIndex ?: 0
-                    selectedAnswers = args.selectedAnswers ?: intArrayOf(-1, -1, -1, -1, -1)
-                }
-            } catch(exc:Exception){
-                questionIndex =  0
-                selectedAnswers = intArrayOf(-1, -1, -1, -1, -1)
-            }
-
-            when (questionIndex){
-              0->activity?.setTheme(R.style.Theme_Quiz)
-              1->activity?.setTheme(R.style.Theme_Quiz_First)
-              2->activity?.setTheme(R.style.Theme_Quiz_Second)
-              3->activity?.setTheme(R.style.Theme_Quiz_Third)
-              4->activity?.setTheme(R.style.Theme_Quiz_Fourth)
-            }
-
-            setAnswers()
-
-            binding.nextButton.text = if (questionIndex==questions.lastIndex) "Submit" else "Next"
-            binding.toolbar.navigationIcon =
+        binding.nextButton.text = if (questionIndex==questions.lastIndex) "Submit" else "Next"
+        binding.toolbar.navigationIcon =
                  if (questionIndex==0) null
                  else activity?.let {
                      getDrawable(it, R.drawable.ic_baseline_chevron_left_24)
                  }
 
-            binding.previousButton.isClickable = (questionIndex>0)
-            binding.previousButton.alpha       = if (questionIndex>0) 1.0f else 0.3f
+        binding.previousButton.isClickable = (questionIndex>0)
+        binding.previousButton.alpha       = if (questionIndex>0) 1.0f else 0.3f
 
-            with(binding.nextButton) {
+        with(binding.nextButton) {
                 val checkedId = binding.radioGroup.checkedRadioButtonId
                 isClickable = if (checkedId > -1) true else false
                 alpha       = if (checkedId > -1) 1.0f  else 0.3f
                 //getBackground().setColorFilter(Color.GRAY, PorterDuff.Mode.MULTIPLY)
-            }
-            binding.game = this
-            binding.radioGroup.setOnCheckedChangeListener { _, checkedId ->
+        }
+        binding.game = this
+        binding.radioGroup.setOnCheckedChangeListener { _, checkedId ->
                 with(binding.nextButton) {
                     isClickable = if (checkedId > -1) true else false
                     alpha       = if (checkedId > -1) 1.0f  else 0.3f
@@ -106,7 +103,7 @@ class QuizFragment: Fragment() {
 
             }
 
-            binding.nextButton.setOnClickListener(object : View.OnClickListener {
+        binding.nextButton.setOnClickListener(object : View.OnClickListener {
                 override fun onClick(view: View?) {
 
                     val checkedId = binding.radioGroup.checkedRadioButtonId

@@ -30,7 +30,7 @@ class ResultsFragment : Fragment() {
         binding.shareButton.setOnClickListener {  shareSuccess() }
         binding.restartQuizButton.setOnClickListener {
             view?.findNavController()?.navigate(
-                ResultsFragmentDirections.actionResultsFragmentToQuizFragment(0, intArrayOf(-1,-1,-1,-1,1)))
+                ResultsFragmentDirections.actionResultsFragmentToQuizFragment(0, intArrayOf(-1,-1,-1,-1,-1)))
         }
         binding.exitButton.setOnClickListener { ActivityCompat.finishAffinity(requireActivity()) }
 
