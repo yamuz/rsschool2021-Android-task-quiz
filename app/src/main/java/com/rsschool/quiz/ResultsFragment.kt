@@ -46,7 +46,7 @@ class ResultsFragment : Fragment() {
                 override fun handleOnBackPressed() {
 
                     view?.findNavController()?.navigate(
-                        ResultsFragmentDirections.actionResultsFragmentToQuizFragment(0, intArrayOf(-1,-1,-1,-1,1)))
+                        ResultsFragmentDirections.actionResultsFragmentToQuizFragment(0, intArrayOf(-1,-1,-1,-1,-1)))
                 }
             }
             )
