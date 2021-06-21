@@ -14,7 +14,18 @@
     <color name="cyan_100">#b2ebf2</color>
     <color name="cyan_100_light">#e5ffff</color>
     <color name="cyan_100_dark">#81b9bf</color>
+
+    <color name="cyan">#18ffff</color>
+    <color name="cyan200">#76ffff</color>
+    <color name="cyan_dark">#00cbcc</color>
+    <color name="cyan_black">#000000</color>
+
     <color name="deep_purple_100">#d1c4e9</color>
     <color name="deep_purple_100_light">#fff7ff</color>
     <color name="deep_purple_100_dark">#a094b7</color>
+    <color name="green">#4caf50</color>
+    <color name="green_light">#80e27e</color>
+    <color name="green_dark">#087f23</color>
+    <color name="green_black">#000000</color>
+
 </resources>

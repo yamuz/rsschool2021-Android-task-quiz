@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Quiz</string>
+
+    <string name="hello_blank_fragment">Results..</string>
+    <string name="submit_text">Submit</string>
+    <string name="previous_text">Previous</string>
+    <string name="next_text">Next</string>
+    <string name="share_text">Share</string>
+    <string name="result_text_share">You mastered Quiz with %1$d of %2$d  correct questions!</string>
+
+
 </resources>

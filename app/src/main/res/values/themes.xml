@@ -3,6 +3,7 @@
         <item name="colorOnPrimary">@color/black</item>
         <item name="colorOnSecondary">@color/black</item>
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+
     </style>
 
     <style name="Theme.Quiz.First" parent="Theme.Quiz">
@@ -23,5 +24,25 @@
         <item name="colorSecondaryVariant">@color/yellow_100_light</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor">@color/yellow_100_dark</item>
+    </style>
+
+    <style name="Theme.Quiz.Third" parent="Theme.Quiz">
+        <item name="colorPrimary">@color/green</item>
+        <item name="colorPrimaryDark">@color/green_dark</item>
+        <item name="colorPrimaryVariant">@color/green_light</item>
+        <item name="colorSecondary">@color/green_light</item>
+        <item name="colorSecondaryVariant">@color/green</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">@color/green</item>
+    </style>
+
+    <style name="Theme.Quiz.Fourth" parent="Theme.Quiz">
+        <item name="colorPrimary">@color/cyan</item>
+        <item name="colorPrimaryDark">@color/cyan200</item>
+        <item name="colorPrimaryVariant">@color/cyan_dark</item>
+        <item name="colorSecondary">@color/cyan_100</item>
+        <item name="colorSecondaryVariant">@color/cyan_black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">@color/cyan</item>
     </style>
 </resources>
