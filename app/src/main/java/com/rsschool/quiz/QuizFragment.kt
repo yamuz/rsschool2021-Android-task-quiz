@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.content.res.AppCompatResources.getDrawable
 import androidx.fragment.app.Fragment
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
@@ -44,11 +45,10 @@ class QuizFragment: Fragment() {
     )
     override fun onCreateView(    inflater: LayoutInflater,
                                  container: ViewGroup?,
-                        savedInstanceState: Bundle?):  View?
+                        savedInstanceState: Bundle?):  View
     {
 
-        binding = DataBindingUtil.inflate<FragmentQuizBinding>(
-                   inflater, R.layout.fragment_quiz, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_quiz, container, false)
 
 
             try {
@@ -72,8 +72,13 @@ class QuizFragment: Fragment() {
 
             setAnswers()
 
-            binding.nextButton.text = if (questionIndex==questions.lastIndex) "Submit"
-            else "Next"
+            binding.nextButton.text = if (questionIndex==questions.lastIndex) "Submit" else "Next"
+            binding.toolbar.navigationIcon =
+                 if (questionIndex==0) null
+                 else activity?.let {
+                     getDrawable(it, R.drawable.ic_baseline_chevron_left_24)
+                 }
+
             binding.previousButton.isClickable = (questionIndex>0)
             binding.previousButton.alpha       = if (questionIndex>0) 1.0f else 0.3f
 
